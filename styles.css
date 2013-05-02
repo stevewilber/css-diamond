@@ -1,0 +1,5 @@
+.shape {
+  position: absolute;
+  display: hidden;
+  background-color: red;
+}

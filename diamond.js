@@ -37,6 +37,7 @@ function createDiamond(element) {
         element.style.MsTransformOrigin = "0 0";
         element.style.MsTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
     }
+    element.style.display = "block";
 }
 
 function isIe9OrLower() {
