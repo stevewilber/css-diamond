@@ -17,19 +17,28 @@ function createDiamond(element) {
     var c = slope * cosRotate - sinRotate;
     var d = slope * sinRotate + cosRotate;
 
-    element.style.left = elementWidth / 2 + "px";
     element.style.width = width;
     element.style.height = height;
-    element.style.WebkitTransformOrigin = "0 0";
-    element.style.WebkitTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-    element.style.MozTransformOrigin = "0 0";
-    element.style.MozTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-    element.style.OTransformOrigin = "0 0";
-    element.style.OTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-    element.style.filter = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', " +
-                  "M11=" + a +
-                  ", M12=" + c +
-                  ", M21=" + b +
-                  ", M22=" + d +
-                  ")"
+    if (isIe9OrLower()) {
+        element.style.filter = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', " +
+                      "M11=" + a +
+                      ", M12=" + c +
+                      ", M21=" + b +
+                      ", M22=" + d +
+                      ")"
+    } else {
+        element.style.left = elementWidth / 2 + "px";
+        element.style.WebkitTransformOrigin = "0 0";
+        element.style.WebkitTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+        element.style.MozTransformOrigin = "0 0";
+        element.style.MozTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+        element.style.OTransformOrigin = "0 0";
+        element.style.OTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+        element.style.MsTransformOrigin = "0 0";
+        element.style.MsTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+    }
+}
+
+function isIe9OrLower() {
+    return /MSIE (\d+\.\d+);/.test(navigator.userAgent) && new Number(RegExp.$1) < 10;
 }
