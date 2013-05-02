@@ -17,8 +17,8 @@ function createDiamond(element) {
     var c = slope * cosRotate - sinRotate;
     var d = slope * sinRotate + cosRotate;
 
-    element.style.width = width;
-    element.style.height = height;
+    element.style.width = width + "px";
+    element.style.height = height + "px";
     if (isIe9OrLower()) {
         element.style.filter = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', " +
                       "M11=" + a +
