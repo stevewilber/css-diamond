@@ -28,14 +28,17 @@ function createDiamond(element) {
                       ")"
     } else {
         element.style.left = elementWidth / 2 + "px";
-        element.style.WebkitTransformOrigin = "0 0";
-        element.style.WebkitTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-        element.style.MozTransformOrigin = "0 0";
-        element.style.MozTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-        element.style.OTransformOrigin = "0 0";
-        element.style.OTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
-        element.style.MsTransformOrigin = "0 0";
-        element.style.MsTransform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+
+        var transform = "matrix(" + a + "," + b + "," + c + "," + d + ",0,0)";
+        var transformOrigin = "0 0";
+        element.style.WebkitTransformOrigin = transformOrigin;
+        element.style.WebkitTransform = transform;
+        element.style.MozTransformOrigin = transformOrigin;
+        element.style.MozTransform = transform;
+        element.style.OTransformOrigin = transformOrigin;
+        element.style.OTransform = transform;
+        element.style.MsTransformOrigin = transformOrigin;
+        element.style.MsTransform = transform;
     }
     element.style.display = "block";
 }
